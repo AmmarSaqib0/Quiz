@@ -24,52 +24,52 @@ body {
     font-size: 30px;
 }
 
-.buttons {
+.answers {
     margin: auto;
     width: 98%;
     padding: 10px;
 }
 
-.buttons {
+.answers {
     position: absolute;
     top: 100%;
     transform: translate(0, -100%);
     padding: 10px;
 }
 
-#button1 {
+#ans1 {
     background-color: #3498db;
 }
 
-#button2 {
+#ans2 {
     background-color: orange;
 }
 
-#button3 {
+#ans3 {
     background-color: #2ecc71;
 }
 
-#button4 {
+#ans4 {
     background-color: #e74c3c;
 }
 
-#button1:hover {
+#ans1:hover {
     background-color: #246896;
 }
 
-#button2:hover {
+#ans2:hover {
     background-color: rgb(144, 94, 0);
 }
 
-#button3:hover {
+#ans3:hover {
     background-color: #1f8b4c;
 }
 
-#button4:hover {
+#ans4:hover {
     background-color: #8b2f24;
 }
 
-#title {
+#question {
     text-align: center;
     font-size: 60px;
     position: relative;
