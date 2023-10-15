@@ -69,6 +69,22 @@ body {
     background-color: #8b2f24;
 }
 
+#ans1:active {
+    background-color: #18425e;
+}
+
+#ans2:active {
+    background-color: rgb(87, 57, 0);
+}
+
+#ans3:active {
+    background-color: #145830;
+}
+
+#ans4:active {
+    background-color: #4d1a14;
+}
+
 #question {
     text-align: center;
     font-size: 60px;
@@ -77,41 +93,94 @@ body {
 }
 
 .nav #timerDisplay {
+    position: relative;
     color: #7a7a7a;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 40px;
-    display: inline-block;
     text-align: right;
-    overflow: hidden;
-
+    display: inline;
+    left: 560%;
 }
 
 .nav #timerDisplay:hover {
     color: #474747;
 }
 
-.nav #rem-question {
-    display: block;
-    color: #7a7a7a;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 30px;
-    float: right;
+.nav {
     display: inline-block;
-}
-
-.nav #q-left {
-    display: block;
-    color: #7a7a7a;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 30px;
-    /* float: right; */
-    text-align: right;
-    display: inline;
+    text-align: center;
+    align-items: center;
+    position: relative;
 }
 
 .pages {
+    display: inline;
     text-align: right;
+    align-items: right;
+    position: relative;
+}
+
+.header {
+    display: inline-block;
+    position: relative;
+    font-size: 25px;
+    font-weight: 600;
+    /* background-image: linear-gradient(to left, #553c9a, #b393d3); */
+    color: darkgreen;
+    background-clip: text;
+    -webkit-background-clip: text;
+    right: 28%;
+
+}
+
+.pages #next-page {
+    position: relative;
+    width: 10%;
+    height: 50px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    margin: 5px;
+    align-items: center;
+    font-size: 25px;
+    background-color: #1f8b4c;
+    left: 80%;
+}
+
+.pages #previous-page {
+    position: relative;
+    width: 10%;
+    height: 50px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    margin: 5px;
+    align-items: center;
+    font-size: 25px;
+    background-color: #3498db;
+    margin-right: 10px;
+    left: 59%;
+}
+
+.pages #next-page:hover {
+    background-color: #145b32;
+}
+
+.pages #previous-page:hover {
+    background-color: #23628d;
+}
+
+.pages #next-page:active {
+    background-color: #0c361d;
+}
+
+.pages #previous-page:active {
+    background-color: #13354b;
 }
