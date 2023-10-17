@@ -2,8 +2,8 @@ const button = document.querySelector("#next-page");
 let filenum = localStorage.getItem('filenum') || 0; // Retrieve the value from localStorage or set it to 0
 
 button.addEventListener("click", function () {
-    filenum++;
-    if (filenum <= 3) {
+    if (filenum < 3) {
+        filenum++;
         localStorage.setItem('filenum', filenum); // Store the updated value in localStorage
         window.location.href = `q${filenum}.html`;
     } else if (filenum == 4) {
