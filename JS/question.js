@@ -1,47 +1,37 @@
 let score = 0;
-let q = document.querySelector('#question');
 const buttons = document.querySelectorAll(".button");
-const question = document.querySelector("#question");
+filenum = localStorage.getItem('filenum');
+
+function nextQuestion() {
+    if (filenum < 3) {
+        filenum++;
+        localStorage.setItem('filenum', filenum);
+        window.location.href = `q${filenum}.html`;
+    } else {
+        alert("This is the last question");
+    }
+}
 
 let questions = [
-   {
-       question: "2 + 2",
-       answer: "ans4"
-   },
-   {
-    question: "5 + 9",
-    answer: "ans3"
+    {
+        question: "2 + 2",
     },
     {
-        question: "4 + 2",
-        answer: "ans2"
+        question: "3 + 2",
     },
-]
+    {
+        question: "5 + 5",
+    },
+];
+let q = questions[filenum - 1].question.split(" ");
 
 // loop through each button and add a click event listener
 buttons.forEach(addEvent);
-question.innerHTML = questions[0].question
-function addEvent (button) {
-    button.addEventListener("click", function() {        
-        if (button.id == questions[0].answer) {            
-            question.innerHTML = questions[1].question
+function addEvent(button) {
+    button.addEventListener("click", function () {
+        if (parseInt(button.innerHTML) == eval(q[0] + q[1] + q[2])) {
+            score++;
+            nextQuestion();
         }
-        else {
-            question.innerHTML = questions[1].question
-            if (button.id == questions[1].answer) {                
-                question.innerHTML = questions[2].question
-            }
-            else {                
-                if (button.id == questions[2].answer) {                    
-                    question.innerHTML = questions[3].question                    
-                }
-                else {                    
-                    
-                }
-            }
-        }                        
-        // page_number = page_number + 1;  
-        // page_name = "q" + page_number + ".html";                    
-        // window.location.assign(page_name);         
     });
 }

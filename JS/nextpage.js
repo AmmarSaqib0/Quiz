@@ -1,14 +1,12 @@
-const button = document.querySelector("#next-page");
-let filenum = localStorage.getItem('filenum') || 0; // Retrieve the value from localStorage or set it to 0
+const nextPageButton = document.querySelector("#next-page");
+let filenum = localStorage.getItem('filenum') || 0;
 
-button.addEventListener("click", function () {
+nextPageButton.addEventListener("click", function () {
     if (filenum < 3) {
         filenum++;
-        localStorage.setItem('filenum', filenum); // Store the updated value in localStorage
+        localStorage.setItem('filenum', filenum);
         window.location.href = `q${filenum}.html`;
-    }
-    else {
+    } else {
         alert("This is the last question");
-        // filenum = 0;
     }
 });
