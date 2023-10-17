@@ -13,19 +13,29 @@ function nextQuestion() {
     }
 }
 
-let questions = question.innerHTML;
-// }
-// ];
-let q = questions.split(" ");
+let questions = [
+    {
+        asnwer: "Regina"
+    },
+    {
+        asnwer: "5"
+    },
+    {
+        asnwer: "10"
+    }
+];
 
 // loop through each button and add a click event listener
 buttons.forEach(addEvent);
 function addEvent(button) {
     button.addEventListener("click", function () {
         // console.log(eval(q[0] + q[1] + q[2]));
-        if (parseInt(button.innerHTML) == eval(q[0] + q[1] + q[2])) {
+        if (button.innerHTML == questions[filenum - 1].asnwer) {
             score++;
             nextQuestion();
+        } else {
+            nextQuestion();
         }
+        console.log(score);
     });
 }
