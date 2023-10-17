@@ -1,5 +1,6 @@
 let score = 0;
 const buttons = document.querySelectorAll(".button");
+const question = document.querySelector("#question");
 filenum = localStorage.getItem('filenum');
 
 function nextQuestion() {
@@ -12,23 +13,16 @@ function nextQuestion() {
     }
 }
 
-let questions = [
-    {
-        question: "2 + 2",
-    },
-    {
-        question: "3 + 2",
-    },
-    {
-        question: "5 + 5",
-    },
-];
-let q = questions[filenum - 1].question.split(" ");
+let questions = question.innerHTML;
+// }
+// ];
+let q = questions.split(" ");
 
 // loop through each button and add a click event listener
 buttons.forEach(addEvent);
 function addEvent(button) {
     button.addEventListener("click", function () {
+        // console.log(eval(q[0] + q[1] + q[2]));
         if (parseInt(button.innerHTML) == eval(q[0] + q[1] + q[2])) {
             score++;
             nextQuestion();
