@@ -6,7 +6,8 @@ button.addEventListener("click", function () {
         filenum++;
         localStorage.setItem('filenum', filenum); // Store the updated value in localStorage
         window.location.href = `q${filenum}.html`;
-    } else {
+    }
+    else {
         alert("This is the last question");
         // filenum = 0;
     }
