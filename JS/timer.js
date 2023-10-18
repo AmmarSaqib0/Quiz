@@ -3,7 +3,7 @@ let timerRef = document.querySelector('#timerDisplay');
 let int = null;
 
 window.onload = function () {
-    if (int !== null) {
+    if (int != null) {
         clearInterval(int);
     }
     int = setInterval(displayTimer, 10);

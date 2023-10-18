@@ -184,3 +184,19 @@ body {
 .pages #previous-page:active {
     background-color: #13354b;
 }
+
+#ans1:disabled {
+    background-color: #215a80;
+}
+
+#ans2:disabled {
+    background-color: rgb(149, 97, 0);
+}
+
+#ans3:disabled {
+    background-color: #1b7842;
+}
+
+#ans4:disabled {
+    background-color: #7a2a21;
+}
