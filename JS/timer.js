@@ -1,41 +1,39 @@
-let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
 let timerRef = document.querySelector('#timerDisplay');
-let m = 0;
-let s = 0;
-let sec = 0;
+let startTime;
+let pausetime = 0;
+let minutes = 0;
+let seconds = 0;
 let int = null;
 
 window.onload = function () {
     if (int != null) {
         clearInterval(int);
     }
-    setInterval(displayTimer, 1000);
+    displayTimer();
 };
 
 function displayTimer() {
-    milliseconds += 1000;
-    if (milliseconds == 1000) {
-        milliseconds = 0;
-        seconds++;
-        if (seconds == 60) {
-            seconds = 0;
-            minutes++;
-            if (minutes == 60) {
-                minutes = 0;
-                hours++;
-            }
-        }
-    }
-    let min = localStorage.getItem('m');
-    let sec = localStorage.getItem('s');
-    // let h = hours < 10 ? "0" + hours : hours;
-    let test = eval(minutes + parseInt(min));
-    let test2 = eval(seconds + parseInt(sec));
-    m = minutes < 10 ? "0" + test : test;
-    s = seconds < 10 ? "0" + test2 : test2;
-    localStorage.setItem('m', test)
-    localStorage.setItem('s', test2)
+    startTime = new Date().getTime() - pausetime; // get the starting time by subtracting the elapsed paused time from the current time
+    stopwatchInterval = setInterval(updateStopwatch, 1000);
+}
+function updateStopwatch() {
+    let currentTime = new Date().getTime();
+    let elapsedTime = currentTime - startTime;
+    seconds = Math.floor(elapsedTime / 1000) % 60; // calculate seconds
+    minutes = Math.floor(elapsedTime / 1000 / 60) % 60; // calculate minutes
+    let displayTime = pad(minutes) + ":" + pad(seconds);
+    timerRef.innerHTML = displayTime;
+}
 
-    // console.log(`${m}, ${s}`)
-    timerRef.innerHTML = `${m} : ${s}`;
+function stopStopwatch() {
+    clearInterval(stopwatchInterval); // stop the interval
+    pausetime = new Date().getTime() - startTime; // calculate elapsed paused time
+    stopwatchInterval = null; // reset the interval variable
+    localStorage.setItem("minutes", minutes);
+    localStorage.setItem("seconds", seconds);
+    console.log(minutes + "  " + seconds)
+}
+
+function pad(number) {
+    return (number < 10 ? "0" : "") + number;
 }
