@@ -14,7 +14,11 @@ window.onload = function () {
 
 function displayTimer() {
     startTime = new Date().getTime() - pausetime; // get the starting time by subtracting the elapsed paused time from the current time
+
     stopwatchInterval = setInterval(updateStopwatch, 1000);
+    localStorage.setItem("minutes", minutes);
+    localStorage.setItem("seconds", seconds);
+    console.log(minutes + "  " + seconds)
 }
 function updateStopwatch() {
     let currentTime = new Date().getTime();
@@ -29,9 +33,7 @@ function stopStopwatch() {
     clearInterval(stopwatchInterval); // stop the interval
     pausetime = new Date().getTime() - startTime; // calculate elapsed paused time
     stopwatchInterval = null; // reset the interval variable
-    localStorage.setItem("minutes", minutes);
-    localStorage.setItem("seconds", seconds);
-    console.log(minutes + "  " + seconds)
+
 }
 
 function pad(number) {
