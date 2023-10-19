@@ -12,3 +12,5 @@ button.addEventListener("click", function () {
 
 localStorage.setItem("score", 0);
 localStorage.setItem("filenum", 1);
+localStorage.setItem('m', 0);
+localStorage.setItem('s', 0);

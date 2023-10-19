@@ -1,16 +1,18 @@
 let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
 let timerRef = document.querySelector('#timerDisplay');
+let m = 0;
+let s = 0;
 let int = null;
 
 window.onload = function () {
     if (int != null) {
         clearInterval(int);
     }
-    int = setInterval(displayTimer, 10);
+    setInterval(displayTimer, 1000);
 };
 
 function displayTimer() {
-    milliseconds += 10;
+    milliseconds += 1000;
     if (milliseconds == 1000) {
         milliseconds = 0;
         seconds++;
@@ -23,10 +25,15 @@ function displayTimer() {
             }
         }
     }
+    // let min = localStorage.getItem('m');
+    // let sec = localStorage.getItem('s');
+    // let h = hours < 10 ? "0" + hours : hours;
+    let test = eval(minutes);
+    let test2 = eval(seconds);
 
-    let h = hours < 10 ? "0" + hours : hours;
-    let m = minutes < 10 ? "0" + minutes : minutes;
-    let s = seconds < 10 ? "0" + seconds : seconds;
+    m = minutes < 10 ? "0" + test : test;
+    s = seconds < 10 ? "0" + test2 : test2;
 
+    // console.log(`${m}, ${s}`)
     timerRef.innerHTML = `${m} : ${s}`;
 }
