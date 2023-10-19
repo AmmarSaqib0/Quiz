@@ -13,7 +13,7 @@ function nextQuestion() {
         localStorage.setItem('filenum', filenum);
         window.location.href = `q${filenum}.html`;
     } else {
-        alert("This is the last question");
+        window.location.href = `result.html`;
     }
 }
 
@@ -47,6 +47,7 @@ function addEvent(button) {
             ans2.setAttribute('disabled', true)
             ans3.setAttribute('disabled', true)
             ans4.setAttribute('disabled', true)
+            nextQuestion();
             console.log(score);
         }
     });

@@ -29,3 +29,29 @@ body {
 .questionright {
     font-size: 25px;
 }
+
+.button {
+    width: 49%;
+    height: 60px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    display: inline-block;
+    margin: 5px;
+    font-size: 30px;
+    background-color: #3498db;
+    margin-left: 115px;
+    position: absolute;
+    top: 75%;
+}
+
+.button:hover {
+    background-color: #256b9a;
+}
+
+.button:active {
+    background-color: #194968;
+}
