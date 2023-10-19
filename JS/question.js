@@ -5,6 +5,8 @@ let ans2 = document.getElementById("ans2");
 let ans3 = document.getElementById("ans3");
 let ans4 = document.getElementById("ans4");
 const question = document.querySelector("#question");
+let state;
+
 filenum = localStorage.getItem('filenum') || 1;
 
 function nextQuestion() {
@@ -33,7 +35,6 @@ let questions = [
 buttons.forEach(addEvent);
 function addEvent(button) {
     button.addEventListener("click", function () {
-        // console.log(eval(q[0] + q[1] + q[2]));
         if (score >= 3) {
             score = 3;
         } else if (button.innerHTML == questions[filenum - 1].answer) {
@@ -43,12 +44,14 @@ function addEvent(button) {
             console.log(score);
             document.getElementById(".button").disabled = true;
         } else {
-            ans1.setAttribute('disabled', true)
-            ans2.setAttribute('disabled', true)
-            ans3.setAttribute('disabled', true)
-            ans4.setAttribute('disabled', true)
             nextQuestion();
-            console.log(score);
         }
+
+        // if (localStorage.getItem("a") == filenum) {
+        //     ans1.setAttribute('disabled', true)
+        //     ans2.setAttribute('disabled', true)
+        //     ans3.setAttribute('disabled', true)
+        //     ans4.setAttribute('disabled', true)
+        // }
     });
 }
