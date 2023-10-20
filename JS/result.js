@@ -14,3 +14,5 @@ localStorage.setItem("score", 0);
 localStorage.setItem("filenum", 1);
 localStorage.setItem('m', 0);
 localStorage.setItem('s', 0);
+localStorage.setItem('minutes', 0);
+localStorage.setItem('seconds', 0);

@@ -1,35 +1,43 @@
 let timerRef = document.querySelector('#timerDisplay');
-let startButton = document.querySelector('#stq');
 let startTime;
 let pausetime = 0;
-let minutes = parseInt(localStorage.getItem("minutes")) || 0;
-let seconds = parseInt(localStorage.getItem("seconds")) || 0;
+let minutes2 = parseInt(localStorage.getItem("minutes")) || 0;
+let seconds2 = parseInt(localStorage.getItem("seconds")) || 0;
+let minutes = 0;
+let seconds = 0;
+let filenum = parseInt(localStorage.getItem("filenum")) || 1;
 let int = null;
 
-startButton.addEventListener('click', displayTimer());
+// startButton.addEventListener('click', displayTimer());
+window.onload = function () {
+    displayTimer();
+}
 
 function displayTimer() {
+    minutes = parseInt(localStorage.getItem("minutes")) || 0;
+    seconds = (parseInt(localStorage.getItem("seconds"))) + 1 || 0;
     startTime = new Date().getTime() - pausetime; // get the starting time by subtracting the elapsed paused time from the current time
-
     stopwatchInterval = setInterval(function () {
-        updateStopwatch();
         savetime();
+        updateStopwatch();
     }, 1000);
 }
 function updateStopwatch() {
     let currentTime = new Date().getTime();
     let elapsedTime = currentTime - startTime;
-    seconds = Math.floor(elapsedTime / 1000) % 60; // calculate seconds
-    minutes = Math.floor(elapsedTime / 1000 / 60) % 60; // calculate minutes
+    seconds = seconds2 + Math.floor(elapsedTime / 1000) % 60; // calculate seconds
+    minutes = minutes2 + Math.floor(elapsedTime / 1000 / 60) % 60; // calculate minutes
+    if (seconds == 60) {
+        seconds = 0;
+        minutes++;
+    }
     let displayTime = pad(minutes) + ":" + pad(seconds);
-    console.log(localStorage.getItem("seconds"))
     timerRef.innerHTML = displayTime;
 }
 
 function savetime() {
     localStorage.setItem("minutes", minutes);
     localStorage.setItem("seconds", seconds);
-    // console.log(localStorage.getItem("seconds"))
 }
 
 function stopStopwatch() {

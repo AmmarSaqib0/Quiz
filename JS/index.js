@@ -7,4 +7,6 @@ button.addEventListener("click", function () {
     localStorage.setValue('score', 1);
     localStorage.setItem('m', 0);
     localStorage.setItem('s', 0);
+    localStorage.setItem('minutes', 0);
+    localStorage.setItem('seconds', 0);
 });
